@@ -87,4 +87,6 @@ MIT License - Free to use, modify, and distribute.
 
 ## Author
 
+Olivier FABRE
+
 Made with passion for photographers and colorists who understand the power of LAB.

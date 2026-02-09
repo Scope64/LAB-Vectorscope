@@ -2,6 +2,10 @@
 
 A lightweight real-time LAB vectorscope for photography and video color grading.
 
+Website: https://scope64.io
+
+Github: https://github.com/Scope64/LAB-Vectorscope
+
 ![Scope64 Screenshot](screenshot.png)
 
 ## What is it?
@@ -87,6 +91,8 @@ MIT License - Free to use, modify, and distribute.
 
 ## Author
 
-Olivier FABRE
+Copyright (c) 1996-2026 - Olivier FABRE
+
+Thanks to Claude AI / Anthropic for algorithms optimization.
 
 Made with passion for photographers and colorists who understand the power of LAB.

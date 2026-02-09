@@ -2,6 +2,10 @@
 
 Un vectorscope LAB temps réel et ultra-léger pour la photographie et l'étalonnage vidéo.
 
+Site Web : https://scope64.io
+
+Github : https://github.com/Scope64/LAB-Vectorscope
+
 ![Scope64 Screenshot](screenshot.png)
 
 ## C'est quoi ?
@@ -87,6 +91,8 @@ Licence MIT - Libre d'utilisation, modification et distribution.
 
 ## Auteur
 
-Olivier FABRE
+Copyright (c) 1996-2026 - Olivier FABRE
+
+Merci à Claude AI / Anthropic pour les optimisations.
 
 Fait avec passion pour les photographes et coloristes qui comprennent la puissance du LAB.

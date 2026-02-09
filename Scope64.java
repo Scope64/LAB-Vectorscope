@@ -234,11 +234,10 @@ public class Scope64 {
                 String filename = "Scope64_" + System.currentTimeMillis() + ".png";
                 File file = new File(desktop + filename);
                 
-                ImageIO.write(screenshot, "PNG", file);
-                // System.out.println("Screenshot : " + file.getAbsolutePath());
+                ImageIO.write(screenshot, "PNG", file);                
                 
             } catch (Exception ex) {
-                // System.err.println("Error : " + ex.getMessage());
+                System.err.println("Error : " + ex.getMessage());
             }
         }
         
@@ -346,6 +345,10 @@ public class Scope64 {
         
         private static String[] getColorTexts() {
 			if (lastCapture == null) {
+				return new String[] {"", ""};
+			}
+			
+			if (avgAstar == 0 && avgBstar == 0) {
 				return new String[] {"", ""};
 			}
 			

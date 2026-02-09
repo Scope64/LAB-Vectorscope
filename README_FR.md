@@ -36,7 +36,7 @@ L'espace colorimétrique LAB sépare la luminosité de la chrominance, ce qui le
 ## Prérequis
 
 - Java 8 ou supérieur
-- Télécharger et installer depuis : https://www.oracle.com/fr/java/technologies/downloads/
+- Téléchargez et installez JAVA JDK depuis : https://www.oracle.com/fr/java/technologies/downloads/
 
 ## Utilisation
 ```bash

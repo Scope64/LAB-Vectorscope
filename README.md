@@ -38,7 +38,7 @@ The LAB color space separates luminosity from chrominance, making it ideal for c
 ## Requirements
 
 - Java 8 or higher
-- Download and install from: https://www.oracle.com/java/technologies/downloads/
+- Download and install JAVA JDK from: https://www.oracle.com/java/technologies/downloads/
 
 ## Usage
 ```bash

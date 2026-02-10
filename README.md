@@ -4,7 +4,7 @@ A lightweight real-time LAB vectorscope for photography and video color grading.
 
 Website: https://scope64.io
 
-Github: https://github.com/Scope64/LAB-Vectorscope
+GitHub: https://github.com/Scope64/LAB-Vectorscope
 
 Last Update: 2026-02-09
 

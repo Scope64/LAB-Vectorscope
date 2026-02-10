@@ -4,7 +4,7 @@ Un vectorscope LAB temps réel et ultra-léger pour la photographie et l'étalon
 
 Site Web : https://scope64.io
 
-Github : https://github.com/Scope64/LAB-Vectorscope
+GitHub : https://github.com/Scope64/LAB-Vectorscope
 
 ![Scope64 Screenshot](screenshot.png)
 

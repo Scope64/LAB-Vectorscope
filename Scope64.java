@@ -417,9 +417,9 @@ public class Scope64 {
                         float ratio = (float)(distance / radius);
                         Color color;
                         if (y < centerY) {
-                            color = interpolateColor(centerColor, new Color(255, 30, 141), ratio);
+                            color = interpolateColor(centerColor, new Color(255, 0, 149), ratio);
                         } else if (y > centerY) {
-                            color = interpolateColor(centerColor, new Color(0, 136, 118), ratio);
+                            color = interpolateColor(centerColor, new Color(0, 155, 116), ratio);
                         } else {
                             color = centerColor;
                         }
@@ -436,9 +436,9 @@ public class Scope64 {
                         float ratio = (float)(distance / radius);
                         Color color;
                         if (x > centerX) {
-                            color = interpolateColor(centerColor, new Color(255, 253, 99), ratio);
+                            color = interpolateColor(centerColor, new Color(255, 238, 0), ratio);
                         } else if (x < centerX) {
-                            color = interpolateColor(centerColor, new Color(0, 129, 255), ratio);
+                            color = interpolateColor(centerColor, new Color(0, 96, 255), ratio);
                         } else {
                             color = centerColor;
                         }

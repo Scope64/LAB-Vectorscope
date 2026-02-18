@@ -377,21 +377,6 @@ public class Scope64 {
                 colorTextB = aGreater ? "B l u e" : (aEqual ? "B l u e" : "B l u e  ++");
             }
             
-            // Cas spéciaux : une seule dominante
-            if (aPositive && absAvgBstar <= 1 && aGreater) {
-                colorTextA = "M a g e n t a";
-                colorTextB = "";
-            } else if (!aPositive && absAvgBstar <= 1 && aGreater) {
-                colorTextA = "G r e e n";
-                colorTextB = "";
-            } else if (bPositive && absAvgAstar <= 1 && !aGreater) {
-                colorTextA = "Y e l l o w";
-                colorTextB = "";
-            } else if (!bPositive && absAvgAstar <= 1 && !aGreater) {
-                colorTextA = "B l u e";
-                colorTextB = "";
-            }
-            
             return new String[] {colorTextA, colorTextB};
         }
         

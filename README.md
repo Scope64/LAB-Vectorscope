@@ -10,6 +10,8 @@ Last Update: 2026-02-20
 
 ![Scope64 Screenshot](screenshot.png)
 
+![Scope64 Screenshot](zone_system.png)
+
 ## What is it?
 
 Scope64 is a minimalist tool that displays a real-time LAB color vectorscope of any screen region. Perfect for:

@@ -35,7 +35,7 @@ The LAB color space separates luminosity from chrominance, making it ideal for c
 - Screenshot export (PNG)
 - Always on top
 - Cross-platform (Windows, macOS, Linux)
-- Ultra lightweight (~11 KB)
+- Ultra lightweight (~12 KB)
 
 ## Requirements
 

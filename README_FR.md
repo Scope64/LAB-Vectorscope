@@ -33,7 +33,7 @@ L'espace colorimétrique LAB sépare la luminosité de la chrominance, ce qui le
 - Export screenshot (PNG)
 - Toujours au premier plan
 - Multi-plateforme (Windows, macOS, Linux)
-- Ultra-léger (~11 Ko)
+- Ultra-léger (~12 Ko)
 
 ## Prérequis
 

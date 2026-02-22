@@ -6,7 +6,7 @@ Website: https://scope64.io
 
 GitHub: https://github.com/Scope64/LAB-Vectorscope
 
-Last Update: 2026-02-20
+Last Update: 2026-02-22
 
 ![Scope64 Screenshot](screenshot.png)
 

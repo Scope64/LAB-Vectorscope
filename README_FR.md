@@ -8,6 +8,8 @@ GitHub : https://github.com/Scope64/LAB-Vectorscope
 
 ![Scope64 Screenshot](screenshot.png)
 
+![Scope64 Screenshot](zone_system.png)
+
 ## C'est quoi ?
 
 Scope64 est un outil minimaliste qui affiche un vectorscope LAB en temps réel de n'importe quelle zone de l'écran. Parfait pour :
@@ -55,6 +57,7 @@ java -jar Scope64.jar
 | **S** | Sauvegarder screenshot sur le Bureau |
 | **ESC** | Quitter |
 | **Clic gauche** | Nouvelle sélection |
+| **Space** | Zone System |
 
 ## Informations affichées
 

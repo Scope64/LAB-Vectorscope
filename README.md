@@ -59,6 +59,7 @@ java -jar Scope64.jar
 | **S** | Save screenshot to Desktop |
 | **ESC** | Quit |
 | **Left Click** | New selection |
+| **Space** | Zone System |
 
 ## Display Info
 

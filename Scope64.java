@@ -331,27 +331,22 @@ public class Scope64 {
 			
 			g2d.setFont(new Font("SansSerif", Font.PLAIN, 12));
 			FontMetrics metrics = g2d.getFontMetrics();
-			
-			// percentLowL TOP LEFT
+						
 			String lowLText = String.format("%.2f", percentLowL);
 			g2d.setColor(percentLowL >= 1 ? Color.WHITE : new Color(128, 128, 128));
 			drawText(g2d, lowLText, 10, 20);
-			
-			// Dynamic Range
+						
 			g2d.setColor(new Color(128, 128, 128));
 			drawText(g2d, String.format("D	%.1f", dynamicRange), 10, 40);
 			drawText(g2d, String.format("EV	 %.1f", dynamicRangeEV), 10, 60);
-			
-			// colorTemp
+						
 			String colorTempText = (colorTemp < 0 || colorTemp > 10000) ? "K" : String.format("K  %.0f", colorTemp);
 			drawText(g2d, colorTempText, 10, 80);
-			
-			// percentHighL TOP RIGHT
+						
 			String highLText = String.format("%.2f", percentHighL);
 			g2d.setColor(percentHighL >= 1 ? Color.WHITE : new Color(128, 128, 128));
 			drawText(g2d, highLText, size - metrics.stringWidth(highLText) - 10, 20);
-			
-			// colorText LAB
+						
 			g2d.setColor(new Color(128, 128, 128));
 			String[] colorTexts = getColorTexts();
 			drawText(g2d, colorTexts[0], size - metrics.stringWidth(colorTexts[0]) - 10, 40);
@@ -410,7 +405,7 @@ public class Scope64 {
 			
 			g2d.setFont(new Font("SansSerif", Font.PLAIN, 13));
 			FontMetrics fmTitle = g2d.getFontMetrics();
-			String title = "Z o n e	  S y s t e m";
+			String title = "Z o n e	   S y s t e m";
 			g2d.setColor(new Color(128, 128, 128));
 			g2d.drawString(title, (size - fmTitle.stringWidth(title)) / 2, rectY - 15);
 			
@@ -580,8 +575,7 @@ public class Scope64 {
  
 		private static void plotLabPoints(Graphics2D g2d, BufferedImage image, int centerX, int centerY, int maxRadius) {
 			if (image == null) return;
-			
-			// Réinitialiser min/max
+						
 			minLstar = 100;
 			maxLstar = 0;
 			

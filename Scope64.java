@@ -302,9 +302,6 @@ public class Scope64 {
 				resultFrame.add(imageLabel);
 			}
 			
-			
-			
-			
 			BufferedImage labImage = createLabAxisImage(500);
 			 
 			imageLabel.setIcon(new ImageIcon(labImage));
@@ -337,8 +334,8 @@ public class Scope64 {
 			drawText(g2d, lowLText, 10, 20);
 						
 			g2d.setColor(new Color(128, 128, 128));
-			drawText(g2d, String.format("D	%.1f", dynamicRange), 10, 40);
-			drawText(g2d, String.format("EV	 %.1f", dynamicRangeEV), 10, 60);
+			drawText(g2d, String.format("D  %.1f", dynamicRange), 10, 40);
+			drawText(g2d, String.format("EV  %.1f", dynamicRangeEV), 10, 60);
 						
 			String colorTempText = (colorTemp < 0 || colorTemp > 10000) ? "K" : String.format("K  %.0f", colorTemp);
 			drawText(g2d, colorTempText, 10, 80);
@@ -369,6 +366,12 @@ public class Scope64 {
 			double[] zonePercent = new double[11];
 			int[]	 zoneCount	 = new int[11];
 
+			minLstar = 100;
+			maxLstar = 0;
+
+			int countLowL = 0;
+			int countHighL = 0;
+
 			if (lastCapture != null) {
 				int nbPixels = lastCapture.getWidth() * lastCapture.getHeight();
 				for (int y = 0; y < lastCapture.getHeight(); y++) {
@@ -378,6 +381,13 @@ public class Scope64 {
 						int g	= (rgb >> 8)  & 0xFF;
 						int b	=  rgb		  & 0xFF;
 						double L = Scope64.sRGB_2_LAB(r, g, b)[0];
+						
+						if (L < 3.0) countLowL++;
+						if (L > 97.0) countHighL++;
+						
+						minLstar = Math.min(minLstar, L);
+						maxLstar = Math.max(maxLstar, L);
+						
 						for (int z = 0; z < 11; z++) {
 							if (L >= zoneBounds[z] && L < zoneBounds[z + 1]) {
 								zoneCount[z]++;
@@ -390,7 +400,19 @@ public class Scope64 {
 				for (int z = 0; z < 11; z++) {
 					zonePercent[z] = (double) zoneCount[z] / nbPixels * 100.0;
 				}
+				
+				percentLowL = (double) countLowL / nbPixels * 100.0;
+				percentHighL = (double) countHighL / nbPixels * 100.0;
+				
+				dynamicRange = maxLstar - minLstar;
+			
+				double minL = Math.max(0.005, minLstar);
+				double maxL = Math.max(0.005, maxLstar);
+				dynamicRangeEV = Math.log(maxL / minL) / Math.log(2);
+				
 			}
+
+			
 
 			double maxPercent = 0.0;
 			for (int z = 0; z < 11; z++) {
@@ -402,6 +424,21 @@ public class Scope64 {
 			int rectX = (size - rectW) / 2;
 			int rectY = 140;
 			int zoneW = rectW / 11;
+			
+			g2d.setFont(new Font("SansSerif", Font.PLAIN, 12));
+			FontMetrics metrics = g2d.getFontMetrics();
+						
+			String lowLText = String.format("%.2f", percentLowL);
+			g2d.setColor(percentLowL >= 1 ? Color.WHITE : new Color(128, 128, 128));
+			drawText(g2d, lowLText, 10, 20);
+			
+			g2d.setColor(new Color(128, 128, 128));
+			drawText(g2d, String.format("D  %.1f", dynamicRange), 10, 40);
+			drawText(g2d, String.format("EV  %.1f", dynamicRangeEV), 10, 60);
+			
+			String highLText = String.format("%.2f", percentHighL);
+			g2d.setColor(percentHighL >= 1 ? Color.WHITE : new Color(128, 128, 128));
+			drawText(g2d, highLText, size - metrics.stringWidth(highLText) - 10, 20);			
 			
 			g2d.setFont(new Font("SansSerif", Font.PLAIN, 13));
 			FontMetrics fmTitle = g2d.getFontMetrics();
@@ -477,17 +514,17 @@ public class Scope64 {
 			boolean aEqual = Math.abs(avgAstar) == Math.abs(avgBstar);
 			
 			if (aPositive && bPositive) {
-				colorTextA = aGreater ? "M a g e n t a	++" : (aEqual ? "M a g e n t a	==" : "M a g e n t a");
-				colorTextB = aGreater ? "Y e l l o w" : (aEqual ? "Y e l l o w" : "Y e l l o w	++");
+				colorTextA = aGreater ? "M a g e n t a  ++" : (aEqual ? "M a g e n t a  ==" : "M a g e n t a");
+				colorTextB = aGreater ? "Y e l l o w" : (aEqual ? "Y e l l o w" : "Y e l l o w  ++");
 			} else if (!aPositive && bPositive) {
-				colorTextA = aGreater ? "G r e e n	++" : (aEqual ? "G r e e n	==" : "G r e e n");
-				colorTextB = aGreater ? "Y e l l o w" : (aEqual ? "Y e l l o w" : "Y e l l o w	++");
+				colorTextA = aGreater ? "G r e e n  ++" : (aEqual ? "G r e e n  ==" : "G r e e n");
+				colorTextB = aGreater ? "Y e l l o w" : (aEqual ? "Y e l l o w" : "Y e l l o w  ++");
 			} else if (!aPositive && !bPositive) {
-				colorTextA = aGreater ? "G r e e n	++" : (aEqual ? "G r e e n	==" : "G r e e n");
-				colorTextB = aGreater ? "B l u e" : (aEqual ? "B l u e" : "B l u e	++");
+				colorTextA = aGreater ? "G r e e n  ++" : (aEqual ? "G r e e n  ==" : "G r e e n");
+				colorTextB = aGreater ? "B l u e" : (aEqual ? "B l u e" : "B l u e  ++");
 			} else if (aPositive && !bPositive) {
-				colorTextA = aGreater ? "M a g e n t a	++" : (aEqual ? "M a g e n t a	==" : "M a g e n t a");
-				colorTextB = aGreater ? "B l u e" : (aEqual ? "B l u e" : "B l u e	++");
+				colorTextA = aGreater ? "M a g e n t a  ++" : (aEqual ? "M a g e n t a  ==" : "M a g e n t a");
+				colorTextB = aGreater ? "B l u e" : (aEqual ? "B l u e" : "B l u e  ++");
 			}
 			
 			return new String[] {colorTextA, colorTextB};
